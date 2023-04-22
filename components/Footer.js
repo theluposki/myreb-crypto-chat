@@ -4,7 +4,7 @@ export default function Footer() {
     return (
       <>
         <footer className={styles.footer}>
-            Footer
+            <span>Version: 1.0.0</span>
         </footer>
       </>
     )

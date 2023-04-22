@@ -1,18 +1,26 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600;700;800;900&display=swap');
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
+:root {
+  --darkness: #101010;
+  --dark: #212121;
+  --dark2: #2a2a2a;
+  --dark3: #323232;
+  --dark4: #3b3b3b;
+  --dark5: #434343;
+
+  --white: #f6f6f6;
+
+  --blue: #0057ff;
+
+  --bg-default: var(--dark2);
+  --bg-prymary: var(--blue);
+  --default-color-border: #212121;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 33, 33, 33;
+    --default-color-border: #212121;
+    --bg-prymary: #212121;
   }
 }
 
@@ -30,10 +38,13 @@ body {
   overflow-x: hidden;
 
   display: flex;
+
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  background-color: var(--bg-default);
+  color: var(--white)
 }
 
 a {
@@ -41,21 +52,31 @@ a {
   text-decoration: none;
 }
 
-.main {
+.layout {
   display: flex;
 }
 
-.page {
-  flex: 1;
-  min-width: 100vw;
-  min-height: calc(100vh - 100px);
-
-  background-color: red;
-
+.main {
   display: flex;
   flex-direction: column;
 }
 
+.page {
+  flex: 1;
+  min-width: calc(100vw - 50px);
+  min-height: calc(100vh - 100px);
+
+  background-color: var(--dark);
+
+  display: flex;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
 
 @media (prefers-color-scheme: dark) {
   html {

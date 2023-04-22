@@ -4,13 +4,15 @@ import Aside from './Aside.js'
 
 export default function Layout({ children }) {
   return (
-    <>
-      <Header />
-        <main className='main'>
+    <>  
+        <div className='layout'>
             <Aside />
-            <section>{children}</section>
-        </main>
-      <Footer />
+            <main className='main'>
+                <Header />
+                <section>{children}</section>
+                <Footer />
+            </main>
+        </div>
     </>
   )
 }
