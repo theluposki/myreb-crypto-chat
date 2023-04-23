@@ -19,8 +19,20 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --darkness: #101010;
+    --dark: #212121;
+    --dark2: #2a2a2a;
+    --dark3: #323232;
+    --dark4: #3b3b3b;
+    --dark5: #434343;
+  
+    --white: #f6f6f6;
+  
+    --blue: #0057ff;
+  
+    --bg-default: var(--dark2);
+    --bg-prymary: var(--blue);
     --default-color-border: #212121;
-    --bg-prymary: #212121;
   }
 }
 
