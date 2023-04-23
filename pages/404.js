@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/404.module.css'
 
-export default function About() {
+export default function NotFound() {
   return (
     <>
       <Head>
@@ -13,7 +13,8 @@ export default function About() {
 
       <main className='page'>
         <div className='container'>
-          <h1 className={styles.title}>Não encontrado</h1>
+          <h1 className={styles.title}>404</h1>
+          <p className={styles.title}>Não encontrado</p>
         </div>
       </main>
     </>
