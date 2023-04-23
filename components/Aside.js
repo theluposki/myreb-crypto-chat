@@ -13,8 +13,6 @@ export default function Aside() {
 
     const { pathname } = useRouter()
 
-
-    console.log(pathname)
     return (
       <>
         <aside className={styles.aside}>
@@ -50,9 +48,6 @@ export default function Aside() {
                 </nav>
 
             }
-
-
-
 
             <footer>
                 <button className={styles.btnLogout}>
