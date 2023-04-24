@@ -49,11 +49,9 @@ export default function Aside() {
 
             }
 
-            <footer>
                 <button className={styles.btnLogout}>
                   <img src='/icons/log-out.svg' alt='log-out'/>  
                 </button>        
-            </footer>
         </aside>
       </>
     )

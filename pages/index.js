@@ -1,16 +1,31 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   
   const [users, setUsers] = useState([])
 
-  const getUser = async () => {
-    const response = await fetch("/api/users")
+  const addUser = async () => {
+    const response = await fetch("/api/users", {
+      method: 'POST',
+      body: JSON.stringify({ id: 5, name: "Joana" })
+    })
+
     const data = await response.json()
-    setUsers(data)
+    console.log(data)
   }
+
+  useEffect(() => {
+    const getUser = async () => {
+      const response = await fetch("/api/users")
+      const data = await response.json()
+      setUsers(data)
+    }
+
+    getUser().catch(console.error);
+   
+  },[users])
 
 
 
@@ -28,14 +43,15 @@ export default function Home() {
           <h1>Início</h1>
 
           <ul>
-            {
+            { users.length > 0 && (
               users.map(item => (
                 <li key={item.id}>{item.name}</li>
               ))
+            )
             }
           </ul>
 
-          <button onClick={getUser}>Get User</button>
+          <button onClick={addUser}>Get User</button>
         </div>
       </main>
     </>
