@@ -6,6 +6,12 @@ export default function Home() {
   
   const [users, setUsers] = useState([])
 
+  const getUser = async () => {
+    const response = await fetch("/api/users")
+    const data = await response.json()
+    setUsers(data)
+  }
+
   const addUser = async () => {
     const response = await fetch("/api/users", {
       method: 'POST',
@@ -13,19 +19,17 @@ export default function Home() {
     })
 
     const data = await response.json()
+
+    getUser()
     console.log(data)
   }
 
-  useEffect(() => {
-    const getUser = async () => {
-      const response = await fetch("/api/users")
-      const data = await response.json()
-      setUsers(data)
-    }
 
+
+  useEffect(() => {
     getUser().catch(console.error);
-   
-  },[users])
+    console.log("re")
+  },[])
 
 
 
@@ -57,3 +61,4 @@ export default function Home() {
     </>
   )
 }
+
