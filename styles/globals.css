@@ -64,6 +64,23 @@ a {
   text-decoration: none;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark5);
+}
+
 .layout {
   display: flex;
 }
@@ -80,6 +97,7 @@ a {
   max-height: calc(100vh - 100px);
 
   overflow-y: auto;
+  scroll-behavior: smooth;
 
   background-color: var(--dark);
 

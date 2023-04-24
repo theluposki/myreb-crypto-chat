@@ -45,6 +45,9 @@ export default function Home() {
       <main className='page'>
         <div className='container'>
           <h1>Início</h1>
+          
+
+          <button onClick={addUser}>Get User</button>
 
           <ul>
             { users.length > 0 && (
@@ -54,8 +57,6 @@ export default function Home() {
             )
             }
           </ul>
-
-          <button onClick={addUser}>Get User</button>
         </div>
       </main>
     </>
