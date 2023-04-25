@@ -14,6 +14,7 @@ export default function About() {
       <main className='page'>
         <div className='container'>
           <h1>Sobre</h1>
+
         </div>
       </main>
     </>

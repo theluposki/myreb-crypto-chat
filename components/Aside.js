@@ -2,6 +2,8 @@ import { useState } from 'react'
 import styles from '../styles/Aside.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { getSession, signOut } from 'next-auth/react'
+
 
 export default function Aside() {
 
@@ -24,7 +26,7 @@ export default function Aside() {
               expand ?
 
                 <nav className={styles.nav}>
-                  <Link href='/' className={ pathname === '/' ? styles.navLinkExpandedActive : styles.navLinkExpanded}>
+                  <Link href='/dash' className={ pathname === '/dash' ? styles.navLinkExpandedActive : styles.navLinkExpanded}>
                     <img src='/icons/home.svg' alt='home' />
                     <span className={styles.navLinkText}>Início</span>
                   </Link>
@@ -49,10 +51,31 @@ export default function Aside() {
 
             }
 
-                <button className={styles.btnLogout}>
+                <button onClick={() => signOut()} className={styles.btnLogout}>
                   <img src='/icons/log-out.svg' alt='log-out'/>  
                 </button>        
         </aside>
       </>
     )
+  }
+
+  export const getServerSideProps = async (ctx) => {
+    const session = await getSession(ctx)
+  
+    console.log(session)
+  
+    if(!session) {
+      return {
+        redirect: {
+          destination: '/',
+          permanent: false
+        }
+      }
+    }
+  
+    return {
+      props: {
+        session
+      }
+    }
   }
